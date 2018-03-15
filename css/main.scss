@@ -1,0 +1,146 @@
+@import 'mixins.scss';
+$color1: white;
+$color2: black;
+$color3: #1d8852;
+@font-face {
+  font-family: "guerilla";
+  src: url("../fonts/GUERRILLA-Normal.otf") format("opentype");
+}
+
+body {
+  font-family: 'guerilla';
+  font-size: 1rem;
+  font-weight: 400;
+  background: linear-gradient(0.25turn, $color3, #a0ffc2, $color3);
+}
+
+#social {
+  @include flexaj();
+  @include flex-direction(column);
+  position: fixed;
+  top: 40vh;
+  right: 2vw;
+}
+
+.main-block {
+  @include flexaj();
+  padding-top: 5vw;
+
+
+  .avatar {
+    .hover,
+    .talk {
+      display: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .blackboard {
+    background-color: #00551e;
+    color: $color1;
+    font-size: 2.5rem;
+    @include screen(small){
+      font-size: 2rem;
+    };
+    text-align: left;
+    padding: 20px;
+    border: 8px solid $color1;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 2px 2px 4px $color1;
+    -moz-box-shadow: 2px 2px 4px $color1;
+    box-shadow: 2px 2px 4px $color1;
+    height: auto;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5rem;
+      width: 0;
+      height: 0;
+      border: 28px solid transparent;
+      border-right-color: #fff;
+      border-left: 0;
+      border-bottom: 0;
+      margin-top: -10px;
+      margin-left: -34px;
+    }
+
+    .answer {
+      word-wrap: break-word;
+      font-size: 1.5rem;
+
+      a {
+        text-decoration: none;
+        border-radius: 25px;
+        color: rgba(255, 255, 255, 0.4);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+  }
+
+  .questions {
+    @include flex();
+    align-items: center;
+    justify-content: space-between;
+    padding: 10vh;
+    @include screen(small){
+
+      padding: 5px 15px;
+    };
+
+    a {
+      background-color: $color1;
+      padding: 10px;
+      border: 2px solid $color2;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      -webkit-box-shadow: 2px 2px 4px $color3;
+      -moz-box-shadow: 2px 2px 4px $color3;
+      box-shadow: 2px 2px 4px $color3;
+      text-align: center;
+      text-decoration: none;
+      color: $color2;
+      @include screen(small){
+
+        margin: 15px 0px;
+      };
+
+      span {
+        color: rgba(0,0,0,0.5);
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: $color1;
+        border-bottom: 0;
+        margin-left: -20px;
+        margin-bottom: -20px;
+        @include screen(small){
+          border: none;
+        };
+      }
+
+      &:hover {
+        -webkit-box-shadow: 4px 4px 8px $color3;
+        -moz-box-shadow: 4px 4px 8px $color3;
+        box-shadow: 4px 4px 8px $color3;
+      }
+    }
+  }
+}
