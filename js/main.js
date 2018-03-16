@@ -48,8 +48,12 @@ $(document).ready(function() {
     } else {
       $('.wow').show();
     }
+
+    $('html,body').animate({
+      scrollTop: $("#bboard").offset().top
+    }, 1000);
     talks();
-    $(document).scrollTop($("#bboard").offset().top);
+
   });
   // -------------//----------------
 
