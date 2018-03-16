@@ -25,11 +25,11 @@ $(document).ready(function() {
     var timerId = setInterval(function() {
       $('.display').toggle();
       $('.talk').toggle();
-    }, 500);
+    }, 400);
     setTimeout(function() {
       clearInterval(timerId);
 
-    }, 3000);
+    }, 2400);
   };
   talks();
   // Начальные фразы (-:
@@ -44,22 +44,14 @@ $(document).ready(function() {
   // Поговорим?)
   $('.talking').click(function() {
     if ($(this).hasClass('second')) {
-
       $('.wow').hide();
     } else {
       $('.wow').show();
     }
-
-
     talks();
-
+    $(document).scrollTop($("#bboard").offset().top);
   });
   // -------------//----------------
 
-  if($(document).width()<=768){
-    $('#social div').hide();
-    $('.talking').click(function() {
-        $(document).scrollTop( $("#bboard").offset().top );
-    });
-  }
+
 });
